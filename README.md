@@ -1,5 +1,4 @@
-# Bookly- Completete solution for hotel reservation which will make your travel best and comfortable
-
+# Bookly- Hotel Reservation System
 ## Features
 - [ ] Multilple login for User, Owner, Admin
 - [ ] Pagination, Sort & Search -> Hotels
