@@ -11,8 +11,12 @@ const SignupSchema = Yup.object().shape({
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
         .required('Required'),
+    password: Yup.string()
+        .min(2, 'Too Short!')
+        .max(50, 'Too Long!')
+        .required('Required'),
     email: Yup.string().email('Invalid email').required('Required'),
-  
+
 
 });
 
@@ -23,6 +27,7 @@ const Register = () => (
             initialValues={{
                 firstName: '',
                 lastName: '',
+                password: '',
                 email: '',
             }}
             validationSchema={SignupSchema}
@@ -32,19 +37,25 @@ const Register = () => (
             }}
         >
             {({ errors, touched }) => (
-                <Form>
-                    <Field name="firstName" />
-                    {errors.firstName && touched.firstName ? (
-                        <div>{errors.firstName}</div>
-                    ) : null}
-                    <Field name="lastName" />
-                    {errors.lastName && touched.lastName ? (
-                        <div>{errors.lastName}</div>
-                    ) : null}
-                    <Field name="email" type="email" />
-                    {errors.email && touched.email ? <div>{errors.email}</div> : null}
-                    <button type="submit">Submit</button>
-                </Form>
+               
+                    <Form>
+                        <Field name="firstName" placeholder="first name" className=" bord" />
+                        {errors.firstName && touched.firstName ? (
+                            <div>{errors.firstName}</div>
+                        ) : null}
+                        <Field name="lastName" placeholder="last name" />
+                        {errors.lastName && touched.lastName ? (
+                            <div>{errors.lastName}</div>
+                        ) : null}
+                        <Field name="password" type="password" placeholder="password" />
+                        {errors.lastName && touched.lastName ? (
+                            <div>{errors.lastName}</div>
+                        ) : null}
+                        <Field name="email" type="email" />
+                        {errors.email && touched.email ? <div>{errors.email}</div> : null}
+                        <button type="submit">Submit</button>
+                    </Form>
+               
             )}
         </Formik>
     </div>
