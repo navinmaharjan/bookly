@@ -1,5 +1,4 @@
 # Bookly- Hotel Reservation System
-
 ## Features
 - [ ] Multilple login for User, Owner, Admin
 - [ ] Pagination, Sort & Search -> Hotels
