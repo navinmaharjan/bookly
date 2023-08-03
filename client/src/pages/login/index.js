@@ -18,7 +18,7 @@ const Login = () => (
  <>
      <div className='bg-blue-900'>
             <div className=' container mx-auto h-14 flex items-center text-white text-xl font-semibold'>
-                <h1 className='tracking-wider'>Bookly.com</h1>
+                <h1 className='tracking-wider'>Bookly</h1>
             </div>
 
         </div>
