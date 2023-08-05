@@ -1,12 +1,8 @@
-const Users= require('../models/users')
-
-const registerNewUser = async(req,res)=>{
-    console.log(req.body)
-    //1 user already exist or not?
+const Users = require('../models/users')
+const registerNewUser = async (req, res) => {
     await Users.create(req.body)
-      res.json({
+    res.json({
         msg: 'success'
-      })
-  }
-
-  module.exports = {registerNewUser}
+    })
+}
+module.exports = { registerNewUser }

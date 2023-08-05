@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+
 const connectDb= async()=> {
     try{
      const res = await mongoose.connect('mongodb://127.0.0.1:27017/booklyDb');
@@ -7,5 +8,5 @@ const connectDb= async()=> {
      console.log(err)
     }
    }
-connectDb()
+
 module.exports = connectDb
