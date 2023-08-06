@@ -17,7 +17,7 @@ const SignupSchema = Yup.object().shape({
 const Login = () => (
  <>
      <div className='bg-blue-900'>
-            <div className=' container mx-auto h-14 flex items-center text-white text-xl font-semibold'>
+            <div className=' container mx-auto py-5 flex items-center text-white text-xl font-semibold'>
                 <h1 className='tracking-wider'>Bookly</h1>
             </div>
 
