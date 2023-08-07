@@ -8,21 +8,21 @@ function index() {
     return (
         <>
             <div className='bg-blue-900 sticky top-0 left-0 z-30'>
-                <div className=' container mx-auto py-2 flex items-center justify-between'>
+                <div className=' container mx-auto py-4 flex items-center justify-between'>
                     <div className=' text-white text-xl font-semibold'>
                         <h1 className='tracking-wider'>Bookly</h1>
                     </div>
                     
                     <div className='w-4/12 ms-60 flex justify-between items-center bg-white overflow-hidden'>
                         <div className='w-full'>
-                            <input className='w-full p-1' placeholder='Search'></input>
+                            <input className='w-full py-1 ps-2' placeholder='Search' />
                         </div>
                         <SearchSharpIcon  className="bg-white p-1 text-3xl"/>
                     </div>
 
                     
                     <div className="flex gap-4 items-center">
-                        <div className="text-white text-md pe-6">
+                        <div className="text-white text-sm font-light pe-2">
                             <button>List Your Property</button>
                         </div>
                         

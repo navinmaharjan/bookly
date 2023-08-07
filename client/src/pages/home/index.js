@@ -65,7 +65,7 @@ function index() {
                         <div className='container mx-auto flex gap-5 w-4/5 flex-wrap'>
                             {propertyList.map((item) =>
                                 <div className='flex flex-col p-4'>
-                                    <div className='rounded-lg overflow-hidden'>
+                                    <div className='overflow-hidden'>
                                         <Image
                                             src="/propertyImage.jpg" // The path is relative to the "public" folder
                                             alt="My Image"
@@ -77,7 +77,7 @@ function index() {
                                         {item.propertyName}
                                     </div>
 
-                                    <div>
+                                    <div className="text-gray-400 text-sm">
                                         {item.propertyRating}
                                     </div>
 
