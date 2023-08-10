@@ -15,7 +15,7 @@ const PropertySchema = Yup.object().shape({
 });
 
 
-const Register = () => {
+const registerProperty = () => {
     const handleAddProperty = (values) => {
         fetch('http://localhost:8080/property', {
             method: 'POST',
@@ -124,4 +124,4 @@ const Register = () => {
 
 
 
-export default Register
+export default registerProperty

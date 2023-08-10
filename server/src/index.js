@@ -1,5 +1,5 @@
 const express = require('express')
-const useRoutes = require('./routes/users')
+const userRoutes = require('./routes/users')
 const PropertyRoutes = require('./routes/property')
 const  cors = require('cors')
 const app = express()
@@ -8,7 +8,7 @@ require('dotenv').config()
 
 app.use(cors())
 app.use(express.json())
-app.use(useRoutes)
+app.use(userRoutes)
 app.use(PropertyRoutes)
 
 const connectDb = require('./db/connecttion')

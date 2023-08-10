@@ -20,8 +20,16 @@ const SignupSchema = Yup.object().shape({
 
 });
 
-const Register = () => (
-    <>
+const registerUser = () => {
+    const addNewUser = (values) => {
+        fetch('http://localhost:8080/register', {
+            method: 'POST',
+            body: JSON.stringify(values),
+            headers: { 'Content-Type': 'application/json' },
+        })
+    }
+    return (
+        <>
         <div className='bg-blue-900'>
             <div className=' container mx-auto h-14 flex items-center text-white text-xl font-semibold'>
                 <h1 className='tracking-wider'>Bookly</h1>
@@ -46,7 +54,7 @@ const Register = () => (
                     validationSchema={SignupSchema}
                     onSubmit={values => {
                         // same shape as initial values
-                        console.log(values);
+                        addNewUser(values);
                     }}
                 >
                     {({ errors, touched }) => (
@@ -88,8 +96,7 @@ const Register = () => (
         </div>
     </>
 
+    )
+};
 
-
-);
-
-export default Register
+export default registerUser
