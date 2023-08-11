@@ -21,12 +21,21 @@ const SignupSchema = Yup.object().shape({
 });
 
 const registerUser = () => {
-    const addNewUser = (values) => {
-        fetch('http://localhost:8080/register', {
-            method: 'POST',
-            body: JSON.stringify(values),
-            headers: { 'Content-Type': 'application/json' },
-        })
+    const addNewUser = async (values) => {
+        try {
+            const response = await fetch("http://localhost:8080/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(values),
+            });
+            const result = await response.json();
+           
+          
+        } catch (error) {
+            console.error("Error posting data:", error);
+        }
     }
     return (
         <>

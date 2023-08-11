@@ -12,13 +12,13 @@ const UserSlice = createSlice({
     reducers: {
         setUserDetails: (state, actions) => {
             return {
-            ...state,
-            token: actions.payload.token,
-            isLoggedIn: actions.payload.success,
-            userDetails: actions.payload.userDetails
-        }
+                ...state,
+                token: actions.payload.token,
+                isLoggedIn: actions.payload.success,
+                userDetails: actions.payload.userDetails
+            }
         },
-        
+
     }
 });
 
