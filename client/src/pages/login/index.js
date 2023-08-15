@@ -31,19 +31,32 @@ const Login = () => {
            
             dispatch(setUserDetails(result))
             if(isLoggedIn) {
-              router.push('/')
-            } 
+              router.push('/profile')
+            } else {
+                router.push('/')
+            }
         } catch (error) {
             console.error("Error posting data:", error);
         }
     };
     return (
         <>
-            <div className='bg-blue-900'>
-                <div className=' container mx-auto py-5 flex items-center text-white text-xl font-semibold'>
-                    <h1 className='tracking-wider'>Bookly</h1>
-                </div>
+            <div className='bg-blue-900 py-4'>
+                <div className='container mx-auto flex justify-between items-center'>
+                    <div>
+                        <h1 className='tracking-wider text-white'>Bookly</h1>
+                    </div>
 
+                    {/* <div>
+                        <input type='text' placeholder='Search' className='w-80'></input>
+                    </div> */}
+                    <div className='flex gap-10'>
+                        <button className='text-white'>List your Property</button>
+                        <button className='text-white' onClick={()=>router.push('./register')}>Register</button>
+                        
+                    </div>
+                    
+                </div>
             </div>
 
 
@@ -82,7 +95,7 @@ const Login = () => {
 
 
                                 <div className='text-center mt-4'>
-                                    <button type="submit" className='bg-blue-400 px-4 p-2  rounded-lg text-white w-2/5 transition duration-300  hover:bg-blue-200 hover:text-blue-900 uppercase font-semibold tracking-wide'>Sign In</button>
+                                    <button type="submit" className='bg-blue-900 px-4 p-2  rounded-lg text-white w-2/5 transition duration-300  hover:bg-blue-700 hover:text-white uppercase font-semibold tracking-wide'>Sign In</button>
                                 </div>
 
                                 <div className='flex justify-between pt-16'>
