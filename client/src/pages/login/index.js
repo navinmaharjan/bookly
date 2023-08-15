@@ -1,8 +1,6 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-// import Login from './login'
-// import Home from './home'
 import { setUserDetails } from '../../redux/reducerSlice/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router';
@@ -19,6 +17,7 @@ const Login = () => {
     const dispatch = useDispatch()
     const router=useRouter()
     const {isLoggedIn} = useSelector((state)=> state.user)
+    
     const handleLogin = async (values) => {
         try {
             const response = await fetch("http://localhost:8080/login", {
@@ -29,6 +28,7 @@ const Login = () => {
                 body: JSON.stringify(values),
             });
             const result = await response.json();
+           
             dispatch(setUserDetails(result))
             if(isLoggedIn) {
               router.push('/')

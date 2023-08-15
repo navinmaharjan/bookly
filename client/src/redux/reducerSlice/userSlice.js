@@ -18,9 +18,14 @@ const UserSlice = createSlice({
                 userDetails: actions.payload.userDetails
             }
         },
+        handleLogOut: (state, actions) => {
+            return initialState
 
+        }
     }
-});
 
-export const { setUserDetails } = UserSlice.actions;
+}
+);
+
+export const { setUserDetails, handleLogOut } = UserSlice.actions;
 export default UserSlice.reducer;

@@ -5,16 +5,16 @@ export const initialState = {
     propertyDetails: {},
 };
 
-const UserSlice = createSlice({
-    name: "user",
+const PropertySlice = createSlice({
+    name: "property",
     initialState,
     reducers: {
-        setUserDetails: (state, actions) => {
+        setPropertyDetails: (state, actions) => {
 
         },
         
     }
 });
 
-export const { setUserDetails } = UserSlice.actions;
-export default UserSlice.reducer;
+export const { setUserDetails } = PropertySlice.actions;
+export default PropertySlice.reducer;
