@@ -15,7 +15,7 @@ const OwnerSlice = createSlice({
                 ...state,
                 token: actions.payload.token,
                 isOwnerLoggedIn: actions.payload.success,
-                OwnerDetails: actions.payload.ownerDetails
+                ownerDetails: actions.payload.ownerDetails
             }
         },
         handleOwnerLogOut: (state, actions) => {

@@ -8,16 +8,11 @@ const addNewProperty = async (req, res) => {
     })
 }
 
-const getAllProperty = async (req, res) => {
+const getPropertyByOwnerId = async (req, res) => {
 
-    const data = await Property.find()
-    if (data) {
-        res.json({
-            propertyList: data,
-            msg: 'success'
-        })
-    }
+    const data = await Property.find({ propertyOwner: req.params.ownerId })
+    res.json((data))
 
 }
 
-module.exports = { addNewProperty, getAllProperty}
+module.exports = { addNewProperty, getPropertyByOwnerId }

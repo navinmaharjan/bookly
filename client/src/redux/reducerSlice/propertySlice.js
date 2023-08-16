@@ -16,5 +16,5 @@ const PropertySlice = createSlice({
     }
 });
 
-export const { setUserDetails } = PropertySlice.actions;
+export const { setPropertyDetails } = PropertySlice.actions;
 export default PropertySlice.reducer;

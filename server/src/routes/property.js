@@ -1,7 +1,8 @@
 const express=require('express')
 const router=express.Router()
-const {addNewProperty, getAllProperty} = require('../controllers/property')
+const {addNewProperty, getPropertyByOwnerId} = require('../controllers/property')
 
 router.post('/property', addNewProperty)
-router.get('/property', getAllProperty)
+router.get('/property/:ownerId', getPropertyByOwnerId)
+
 module.exports=router

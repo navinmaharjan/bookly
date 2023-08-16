@@ -9,6 +9,8 @@ const PropertySchema = Yup.object().shape({
         .required('Required'),
     propertyRating: Yup.string()
         .required('Required'),
+    propertyOwner: Yup.string()
+        .required('Required'),
     propertyDescription: Yup.string()
         .required('Required'),
 
@@ -95,6 +97,8 @@ const registerProperty = () => {
                                     </div>
 
                                 </div>
+
+                                
 
                                 <div>
                                     <p className='font-semibold'>Property Description</p>
