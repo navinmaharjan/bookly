@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { setUserDetails } from '../../redux/reducerSlice/userSlice'
+import { setOwnerDetails } from '../../../redux/reducerSlice/ownerSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router';
 
@@ -13,14 +13,14 @@ const SignupSchema = Yup.object().shape({
         .required('Required'),
 });
 
-const Login = () => {
+const ownerLogin = () => {
     const dispatch = useDispatch()
     const router=useRouter()
-    const {isLoggedIn} = useSelector((state)=> state.user)
+    const {isOwnerLoggedIn} = useSelector((state)=> state.owner)
     
     const handleLogin = async (values) => {
         try {
-            const response = await fetch("http://localhost:8080/login", {
+            const response = await fetch("http://localhost:8080/ownerlogin", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -29,9 +29,9 @@ const Login = () => {
             });
             const result = await response.json();
            
-            dispatch(setUserDetails(result))
-            if(isLoggedIn) {
-              router.push('/profile')
+            dispatch(setOwnerDetails(result))
+            if(isOwnerLoggedIn) {
+                router.push('../owner/propertyregister')
             } else {
                 router.push('/')
             }
@@ -50,21 +50,16 @@ const Login = () => {
                     {/* <div>
                         <input type='text' placeholder='Search' className='w-80'></input>
                     </div> */}
-                    <div className='flex gap-10'>
-                        <button className='text-white'>Add your Property</button>
-                        {/* <button className='text-white' onClick={()=>router.push('./register')}>Register</button> */}
-                        
-                    </div>
-                    
+                   
                 </div>
             </div>
 
 
-            <div className='w-full flex justify-center items-center mt-16'>
+            <div className='w-full flex justify-center items-center flex-col mt-16'>
 
-                <div>
+               
                     <div className='text-3xl text-gray-500 text-center'>
-                        <h1>Sign In</h1>
+                        <h1>Sign In To Manage Your Property</h1>
                     </div>
 
                     <Formik
@@ -100,7 +95,7 @@ const Login = () => {
 
                                 <div className='flex justify-between pt-16'>
 
-                                    <div className='text-sm text-gray-400 cursor-pointer hover:text-green-900' onClick={()=>router.push('./register')}>
+                                    <div className='text-sm text-gray-400 cursor-pointer hover:text-green-900' onClick={()=>router.push('../owner/ownerregister')}>
                                         <p>Don't have an account/Sign Up</p>
                                     </div>
                                     <div className='text-sm text-gray-400'>
@@ -119,7 +114,7 @@ const Login = () => {
                             </Form>
                         )}
                     </Formik>
-                </div>
+              
 
             </div>
 
@@ -128,4 +123,4 @@ const Login = () => {
 
 };
 
-export default Login
+export default ownerLogin

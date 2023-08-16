@@ -26,7 +26,7 @@ const registerProperty = () => {
 
     return (
         <>
-            <div className='bg-blue-900'>
+            <div className='bg-green-900'>
                 <div className=' container mx-auto h-14 flex items-center text-white text-xl font-semibold'>
                     <h1 className='tracking-wider'>Bookly</h1>
                 </div>
@@ -105,7 +105,7 @@ const registerProperty = () => {
                                 </div>
 
                                 <div className='text-center mt-4'>
-                                    <button type="submit" className='bg-blue-400 px-2 p-2  rounded-lg text-white w-2/5 transition duration-300 active:bg-blue-900 uppercase font-semibold tracking-wide'>Submit</button>
+                                    <button type="submit" className='bg-green-900 px-2 p-2  rounded-lg text-white w-2/5 transition duration-300 hover:bg-green-700 uppercase font-semibold tracking-wide'>Submit</button>
                                 </div>
 
                             </Form>

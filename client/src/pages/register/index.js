@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -23,7 +23,7 @@ const SignupSchema = Yup.object().shape({
 
 const registerUser = () => {
     const router = useRouter()
-    const [responseMsg, setResponseMsg] = useState({msgLabel: '', msgType: ''})
+    const [responseMsg, setResponseMsg] = useState({ msgLabel: '', msgType: '' })
     const addNewUser = async (values) => {
         try {
             const response = await fetch("http://localhost:8080/register", {
@@ -34,18 +34,18 @@ const registerUser = () => {
                 body: JSON.stringify(values),
             });
             const result = await response.json();
-            if(response.status) {
-                setResponseMsg({msgLabel: result.msg, msgType: response.status==409 ? 'error' : 'success'})
+            if (response.status) {
+                setResponseMsg({ msgLabel: result.msg, msgType: response.status == 409 ? 'error' : 'success' })
             }
-           
+
         } catch (error) {
-            setResponseMsg({msgLabel: error.msg, msgType: 'error'})
+            setResponseMsg({ msgLabel: error.msg, msgType: 'error' })
             console.error("Error posting data:", error);
         }
     }
     return (
         <>
-            <div className='bg-blue-900 py-4'>
+            <div className='bg-green-900 py-4'>
                 <div className='container mx-auto flex justify-between items-center'>
                     <div>
                         <h1 className='tracking-wider text-white'>Bookly</h1>
@@ -56,9 +56,9 @@ const registerUser = () => {
                     </div> */}
                     <div className='flex gap-10'>
                         <button className='text-white'>List your Property</button>
-                        <button className='text-white' onClick={()=>router.push('./login')}>Sign In</button>
+                        
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -68,9 +68,9 @@ const registerUser = () => {
                     <div className='text-3xl text-gray-500 text-center'>
                         <h1>Sign up/Create an account</h1>
                     </div>
-                 
-                    {responseMsg.msgType && <Alert  severity={responseMsg.msgType} onClose={() => setResponseMsg({msgLabel: '', msgType: ''})}> {responseMsg.msgLabel} </Alert> }
-                    
+
+                    {responseMsg.msgType && <Alert severity={responseMsg.msgType} onClose={() => setResponseMsg({ msgLabel: '', msgType: '' })}> {responseMsg.msgLabel} </Alert>}
+
                     <Formik
                         initialValues={{
                             firstName: '',
@@ -86,11 +86,11 @@ const registerUser = () => {
                     >
                         {({ errors, touched }) => (
 
-                            
+
                             <Form className='flex flex-col p-8 border-2 gap-5 w-[400px] mt-8 rounded-xl'>
 
-                                
-                                
+
+
                                 <Field name="firstName" placeholder="First name" className=" border p-2" />
                                 {errors.firstName && touched.firstName ? (
                                     <div>{errors.firstName}</div>
@@ -108,10 +108,16 @@ const registerUser = () => {
                                 {errors.lastName && touched.lastName ? (
                                     <div>{errors.lastName}</div>
                                 ) : null}
+
+                               
                                 <div className='text-center mt-4'>
-                                    <button type="submit" className='bg-blue-400 px-4 p-2  rounded-lg text-white w-2/5 transition duration-300 hover:bg-blue-200 hover:text-blue-900 uppercase font-semibold tracking-wide'>Submit</button>
+                                    <button type="submit" className='bg-green-900 px-4 p-2  rounded-lg text-white w-2/5 transition duration-300 hover:bg-green-700 uppercase font-semibold tracking-wide'>Submit</button>
                                 </div>
-                                <div className='text-xs text-center border-t border-b py-2 mt-4'>
+
+                                <div className='text-sm text-gray-400 cursor-pointer hover:text-green-900 text-center' onClick={() => router.push('./login')}>
+                                    <p>Already have an account/Sign In</p>
+                                </div>
+                                <div className='text-xs text-center border-t border-b py-2 mt-2'>
                                     <p>By signing in or creating an account, you agree with our <span className='text-blue-900'>Terms & Conditions</span> and <span className='text-blue-900'>Privacy Statement</span></p>
                                 </div>
                                 <div className='text-xs text-center py-2'>

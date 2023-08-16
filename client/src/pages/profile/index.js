@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
 import { useSelector, useDispatch } from 'react-redux'
 import { handleLogOut } from '@/redux/reducerSlice/userSlice'
@@ -11,14 +11,14 @@ function index() {
     return (
         <>
             {/* TOP HEADER */}
-            <div className='bg-blue-900 py-2'>
+            <div className='bg-green-900 py-2'>
                 <div className='container mx-auto flex justify-between items-center'>
                     <div>
                         <h1 className='tracking-wider text-white'>Bookly</h1>
                     </div>
 
                     <div>
-                        <input type="text" className="py-[5px] px-5 block w-80 rounded-full text-basedark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Search" />
+                        <input type="text" className="py-[5px] px-5 block w-[500px] rounded-full text-basedark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Search" />
 
                     </div>
                     <div>
@@ -36,15 +36,14 @@ function index() {
                                             My Bookings
                                         </a>
                                         <a className="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-base text-gray-800 hover:bg-gray-200 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 cursor-pointer" onClick={()=>router.push('./accountsettings')}>
-                                            Account Settings
+                                             Settings
                                         </a>
                                         <a className="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-base text-gray-800 hover:bg-gray-200 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 cursor-pointer" onClick={() => dispatch(handleLogOut())}>
                                             Sign Out
                                         </a>
                                     </div>
                                 </div>
-
-
+                                
                                 <div>
                                     <h3 className="font-semibold text-white dark:text-white">{userDetails.firstName} {userDetails.lastName}</h3>
                                 </div>
