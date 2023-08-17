@@ -9,9 +9,10 @@ const addNewProperty = async (req, res) => {
 }
 
 const getPropertyByOwnerId = async (req, res) => {
-
-    const data = await Property.find({ propertyOwner: req.params.ownerId })
+   
+    const data = await Property.findOne({ propertyOwner: req.params.ownerId })
     res.json((data))
+   
 
 }
 

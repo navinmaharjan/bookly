@@ -1,19 +1,17 @@
 import React from 'react';
+import { useSelector } from 'react-redux'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
 const PropertySchema = Yup.object().shape({
     propertyName: Yup.string()
         .required('Required'),
-    propertyAddress: Yup.string()
-        .required('Required'),
     propertyRating: Yup.string()
         .required('Required'),
     propertyOwner: Yup.string()
         .required('Required'),
-    propertyDescription: Yup.string()
-        .required('Required'),
-
+   
+  
 });
 
 
@@ -25,7 +23,7 @@ const registerProperty = () => {
             headers: { 'Content-Type': 'application/json' },
         })
     }
-
+    const { ownerDetails } = useSelector(state => state.owner)
     return (
         <>
             <div className='bg-green-900'>
@@ -45,10 +43,9 @@ const registerProperty = () => {
                     <Formik
                         initialValues={{
                             propertyName: '',
-                            propertyAddress: '',
                             propertyRating: '',
-                            propertyDescription: ''
-
+                            propertyOwner: (ownerDetails._id)
+                            
                         }}
                         validationSchema={PropertySchema}
                         onSubmit={values => {
@@ -66,13 +63,7 @@ const registerProperty = () => {
                                     ) : null}
                                 </div>
 
-                                <div>
-                                    <p className='font-semibold'>Your property Address</p>
-                                    <Field name="propertyAddress" placeholder="Property Address" className=" border p-2 w-full" />
-                                    {errors.propertyAddress && touched.propertyAddress ? (
-                                        <div>{errors.propertyAddress}</div>
-                                    ) : null}
-                                </div>
+                             
 
                                 <div>
                                     <p className='font-semibold'>Choose your property classification</p>
@@ -98,15 +89,18 @@ const registerProperty = () => {
 
                                 </div>
 
+                                {/* <div>
+                                    <p className='font-semibold'>propertyOwner</p>
+                                    <Field name="propertyOwner" placeholder="propertyOwner" className=" border p-2 w-full" />
+                                    {errors.propertyOwner && touched.propertyOwner ? (
+                                        <div>{errors.propertyOwner}</div>
+                                    ) : null}
+                                </div> */}
+                              
+
                                 
 
-                                <div>
-                                    <p className='font-semibold'>Property Description</p>
-                                    <Field name="propertyDescription" placeholder="Say something about your property" className=" border p-2 w-full" />
-                                    {errors.propertyDescription && touched.propertyDescription ? (
-                                        <div>{errors.propertyDescription}</div>
-                                    ) : null}
-                                </div>
+                             
 
                                 <div className='text-center mt-4'>
                                     <button type="submit" className='bg-green-900 px-2 p-2  rounded-lg text-white w-2/5 transition duration-300 hover:bg-green-700 uppercase font-semibold tracking-wide'>Submit</button>

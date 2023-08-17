@@ -12,10 +12,6 @@ const SignupSchema = Yup.object().shape({
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
         .required('Required'),
-    mobileNo: Yup.string()
-        .min(10, 'Invalid Number')
-      
-        .required('Required'),
     email: Yup.string().email('Invalid email').required('Required'),
     password: Yup.string()
         .min(2, 'Too Short!')
@@ -81,7 +77,6 @@ const registerOwner = () => {
                     initialValues={{
                         firstName: '',
                         lastName: '',
-                        mobileNo: '',
                         email: '',
                         password: ''
                     }}
@@ -108,12 +103,6 @@ const registerOwner = () => {
                             {errors.lastName && touched.lastName ? (
                                 <div>{errors.lastName}</div>
                             ) : null}
-
-                            <Field name="mobileNo" placeholder="Mobile Number" className="border p-2" />
-                            {errors.mobileNo && touched.mobileNo ? (
-                                <div>{errors.mobileNo}</div>
-                            ) : null}
-
 
                             <Field name="email" type="email" placeholder="Email" className="border p-2" />
                             {errors.email && touched.email ? <div>{errors.email}</div> : null}
