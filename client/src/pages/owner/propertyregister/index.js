@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { useSelector } from 'react-redux'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -10,20 +10,34 @@ const PropertySchema = Yup.object().shape({
         .required('Required'),
     propertyOwner: Yup.string()
         .required('Required'),
+    propertyImage:  Yup.string()
    
   
 });
 
 
 const registerProperty = () => {
-    const handleAddProperty = (values) => {
-        fetch('http://localhost:8080/property', {
-            method: 'POST',
-            body: JSON.stringify(values),
-            headers: { 'Content-Type': 'application/json' },
-        })
-    }
     const { ownerDetails } = useSelector(state => state.owner)
+    
+    const[file, setFile] = useState(null)
+    
+    const handleAddProperty = async (values) => {
+        debugger
+        const formData = new FormData()
+        Object.entries(values).map((item) => {
+            formData.append(item[0], item[1])  
+        })
+        formData.append('propertyImage', file)
+    
+        const response = await fetch('http://localhost:8080/property', {
+            method: 'POST',
+            body: formData,
+        })
+    // const result = await response.json()
+    }
+   
+
+  
     return (
         <>
             <div className='bg-green-900'>
@@ -44,7 +58,8 @@ const registerProperty = () => {
                         initialValues={{
                             propertyName: '',
                             propertyRating: '',
-                            propertyOwner: (ownerDetails._id)
+                            propertyOwner: (ownerDetails._id),
+                            propertyImage: ''
                             
                         }}
                         validationSchema={PropertySchema}
@@ -81,7 +96,7 @@ const registerProperty = () => {
                                             Guest House
                                         </label>
                                         <label>
-                                            <Field type="radio" name="propertyRating" value="Furnished/Apartment" className="me-2" />
+                                            <Field type="radio" name="propertyRating" value="Furnished Apartment" className="me-2" />
                                             Furnished Apartment
                                         </label>
 
@@ -89,22 +104,16 @@ const registerProperty = () => {
 
                                 </div>
 
-                                {/* <div>
-                                    <p className='font-semibold'>propertyOwner</p>
-                                    <Field name="propertyOwner" placeholder="propertyOwner" className=" border p-2 w-full" />
-                                    {errors.propertyOwner && touched.propertyOwner ? (
-                                        <div>{errors.propertyOwner}</div>
-                                    ) : null}
-                                </div> */}
-                              
-
-                                
-
-                             
+                                <div>
+                                    <p className='font-semibold'>Add Property Image</p>
+                                    <input type='file' onChange={(e) => setFile(e.target.files[0])}/>
+                                </div>
 
                                 <div className='text-center mt-4'>
                                     <button type="submit" className='bg-green-900 px-2 p-2  rounded-lg text-white w-2/5 transition duration-300 hover:bg-green-700 uppercase font-semibold tracking-wide'>Submit</button>
                                 </div>
+
+
 
                             </Form>
                         )}

@@ -7,6 +7,7 @@ const propertySchema = new mongoose.Schema({
         enum: ['Five Star', 'Three Star', 'Guest House', 'Furnished Apartment'],
         default: 'Five Star'
     },
+    propertyImage: String,
     propertyOwner: String
     
 });
