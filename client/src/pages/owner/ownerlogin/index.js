@@ -41,18 +41,7 @@ const ownerLogin = () => {
     };
     return (
         <>
-            <div className='bg-green-900 py-4'>
-                <div className='container mx-auto flex justify-between items-center'>
-                    <div>
-                        <h1 className='tracking-wider text-white'>Bookly</h1>
-                    </div>
-
-                    {/* <div>
-                        <input type='text' placeholder='Search' className='w-80'></input>
-                    </div> */}
-                   
-                </div>
-            </div>
+           
 
 
             <div className='w-full flex justify-center items-center flex-col mt-16'>

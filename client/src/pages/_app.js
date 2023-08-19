@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { Provider } from "react-redux";
 import { persistor, store } from '../redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
+import Layout from '@/components/Layout'
 export default function App({ Component, pageProps }) {
     useEffect(() => {
         import('preline')
@@ -10,7 +11,9 @@ export default function App({ Component, pageProps }) {
     return (
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
-                <Component {...pageProps} />
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
             </PersistGate>
         </Provider >
     )

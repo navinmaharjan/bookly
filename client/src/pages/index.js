@@ -1,15 +1,15 @@
-import { Inter } from 'next/font/google'
-import Home from './home'
-import Profile from './profile'
-import {UseSelector,useSelector} from 'react-redux'
+import React, {Fragment} from 'react'
 
-const inter = Inter({ subsets: ['latin'] })
 
-export default function Main() {
-    const {isLoggedIn} = useSelector(state=> state.user) 
-        if(isLoggedIn){
-            return  <Profile />
-        }else {
-            return <Home />
-        }
+function index() {
+
+    return (
+      <Fragment>
+        <div className='text-center flex justify-center items-center bg-black text-white py-[470px]'>
+            HOME PAGE
+        </div>
+      </Fragment>
+    )
 }
+
+export default index
