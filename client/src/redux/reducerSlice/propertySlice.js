@@ -10,7 +10,6 @@ const PropertySlice = createSlice({
     initialState,
     reducers: {
         setPropertyDetails: (state, actions) => {
-
         },
         
     }

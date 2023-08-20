@@ -49,7 +49,7 @@ const registerOwner = () => {
         <>
           
 
-            <div className='w-full flex flex-col justify-center items-center mt-16'>
+            <div className='w-full flex flex-col justify-center items-center mt-16 mb-[291px]'>
 
 
                 <div className='text-3xl text-gray-500 text-center'>

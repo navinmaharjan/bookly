@@ -31,11 +31,11 @@ const Login = () => {
       const result = await response.json();
 
       dispatch(setUserDetails(result));
-      if(isLoggedIn) {
-        router.push('/profile')
-      } else {
-          router.push('/')
-      }
+    //   if (isLoggedIn) {
+    //     router.push("/profile");
+    //   } else {
+    //     router.push("/");
+    //   }
     } catch (error) {
       console.error("Error posting data:", error);
     }
@@ -56,7 +56,8 @@ const Login = () => {
             validationSchema={SignupSchema}
             onSubmit={(values) => {
               // same shape as initial values
-              handleLogin(values);
+              handleLogin(values)
+              router.push('/profile')
             }}
           >
             {({ errors, touched }) => (

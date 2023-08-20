@@ -47,7 +47,7 @@ const registerUser = () => {
         <>
           
 
-            <div className='w-full flex justify-center items-center mt-16'>
+            <div className='w-full flex justify-center items-center mt-16 mb-[291px]'>
 
                 <div>
                     <div className='text-3xl text-gray-500 text-center'>
