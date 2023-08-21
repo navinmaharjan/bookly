@@ -5,8 +5,9 @@ function index() {
 
     return (
       <Fragment>
-       {/* <Hero/> */}
+        <Hero/>
         <PropertyList />
+     
       </Fragment>
     )
 }

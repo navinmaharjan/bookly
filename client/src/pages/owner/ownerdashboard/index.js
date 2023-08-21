@@ -158,7 +158,7 @@ function index() {
                     </div>
                  
                 
-                  {/* <Image src={'http://localhost:8080/property-image/' +ownerDetails._id}  width={500} height={500}/> */}
+                  <Image src={'http://localhost:8080/property-image/' +ownerDetails._id}  width={500} height={500}/>
                 
                 </div>
               ) : (

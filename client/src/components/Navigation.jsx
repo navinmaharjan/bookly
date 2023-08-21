@@ -12,7 +12,7 @@ function Navigation() {
   return (
     <Fragment>
       {pathName == "/login" ? (
-        <div className="bg-green-900 py-4">
+        <div className="bg-[#252B48] py-4">
           <div className="container mx-auto flex justify-between items-center">
             <div>
               <h1 className="tracking-wider text-white">Bookly</h1>
@@ -29,7 +29,7 @@ function Navigation() {
           </div>
         </div>
       ) : pathName == "/register" ? (
-        <div className="bg-green-900 py-4">
+        <div className="bg-[#252B48] py-4">
           <div className="container mx-auto flex justify-between items-center">
             <div>
               <h1 className="tracking-wider text-white">Bookly</h1>
@@ -46,7 +46,7 @@ function Navigation() {
           </div>
         </div>
       ) : pathName == "/owner/ownerregister" ? (
-        <div className="bg-green-900 py-6">
+        <div className="bg-[#252B48] py-6">
           <div className="container mx-auto flex justify-between items-center">
             <div>
               <h1 className="tracking-wider text-white">Bookly</h1>
@@ -54,7 +54,7 @@ function Navigation() {
           </div>
         </div>
       ) : pathName == "/owner/ownerlogin" ? (
-        <div className="bg-green-900 py-6">
+        <div className="bg-[#252B48] py-6">
           <div className="container mx-auto flex justify-between items-center">
             <div>
               <h1 className="tracking-wider text-white">Bookly</h1>
@@ -62,7 +62,7 @@ function Navigation() {
           </div>
         </div>
       ) : pathName == "/profile" ? (
-        <div className="bg-green-900 py-4">
+        <div className="bg-[#252B48] py-4">
           <div className="container mx-auto flex justify-between items-center">
             <div>
               <h1 className="tracking-wider text-white">Bookly</h1>
@@ -127,7 +127,7 @@ function Navigation() {
           </div>
         </div>
       ) : pathName == "/accountsettings" ? (
-        <div className="bg-green-900 py-4">
+        <div className="bg-[#252B48] py-4">
           <div className="container mx-auto flex justify-between items-center">
             <div>
               <h1 className="tracking-wider text-white">Bookly</h1>
@@ -187,7 +187,7 @@ function Navigation() {
           </div>
         </div>
       ) : pathName == "/owner/ownerdashboard" ? (
-        <div className="bg-green-900 py-4">
+        <div className="bg-[#252B48] py-4">
           <div className="container mx-auto flex justify-between items-center">
             <div>
               <h1 className="tracking-wider text-white">Bookly</h1>
@@ -242,7 +242,7 @@ function Navigation() {
           </div>
         </div>
       ) : pathName == "/owner/propertyregister" ? (
-        <div className="bg-green-900 py-4">
+        <div className="bg-[#252B48] py-4">
           <div className="container mx-auto flex justify-between items-center">
             <div>
               <h1 className="tracking-wider text-white">Bookly</h1>
@@ -297,25 +297,33 @@ function Navigation() {
           </div>
         </div>
       ) : (
-        <div className="bg-green-900 py-4">
+        <div className="bg-[#252B48] sticky top-0 left-0 py-4 z-20">
           <div className="container mx-auto flex justify-between items-center">
             <div>
               <h1 className="tracking-wider text-white">Bookly</h1>
             </div>
 
+            <div className="ps-60">
+              <input
+                type="text"
+                className="py-[5px] px-5 block w-[500px] rounded-full text-basedark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                placeholder="Search"
+              />
+            </div>
+
             <div className="flex items-center gap-5">
               <div
-                className=" opacity-90 hover:opacity-80 p-2 rounded-md cursor-pointer"
+                className=" opacity-90 hover:opacity-80  cursor-pointer border  p-2 rounded-xl"
                 onClick={() => router.push("../owner/ownerregister")}
               >
-                <button className="text-white">Add your Property</button>
+                <button className="text-white tracking-wider ">Add your Property</button>
               </div>
 
               <div
-                className=" opacity-90 hover:opacity-80 p-2 rounded-md cursor-pointer"
+                className=" opacity-90 hover:opacity-80 cursor-pointer border  p-2 rounded-xl"
                 onClick={() => router.push("./login")}
               >
-                <button className="text-white">Sign In/Register</button>
+                <button className="text-white tracking-wider">Sign In/Register</button>
               </div>
             </div>
           </div>

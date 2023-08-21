@@ -13,12 +13,14 @@ const addNewProperty = async (req, res) => {
 
 const getPropertyByOwnerId = async (req, res) => {
     const data = await Property.findOne({ propertyOwner: req.params.ownerId })
-    res.json((data))
+    res.json({data})
 }
 
 const getAllProperty = async (req, res) => {
-    const data = await Property.find()
-    res.json((data))
+    const totalCount = await Property.find().count()
+    const skipCount = (req.query.page-1) * req.query.limit
+    const data = await Property.find().limit(req.query.limit).skip(skipCount)
+    res.json({data, totalCount})
 }
 
 // const getPropertyImageByOwnerId = async (req, res) => {

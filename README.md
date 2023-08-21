@@ -1,7 +1,7 @@
 # Bookly- Hotel Reservation System
 ## Features
-- [ ] Multilple login for User & Owner
-- [ ] Home Page, User Profile Page & Owner Dashboard Page
+- [.] Multilple login for User & Owner
+- [.] Home Page, User Profile Page & Owner Dashboard Page
 - [ ] Pagination, Sort & Search -> Hotels
 - [ ] Profile Section for Hotels, Users
 - [ ] Multiple Room Selection for User for group bookings of family package
