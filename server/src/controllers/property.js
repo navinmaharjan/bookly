@@ -23,16 +23,19 @@ const getAllProperty = async (req, res) => {
     res.json({data, totalCount})
 }
 
-// const getPropertyImageByOwnerId = async (req, res) => {
-//     const data = await Property.findOne({propertyOwner: req.params.ownerId})
-//     const propertyImageDir = path.join(__dirname, '../../', 'uploads/propertyImages/', data.propertyImage)
-//     const defaultImageDir = path.join(__dirname, '../../', 'uploads/propertyImages/', 'default.jpg')
-//     if(fs.existsSync(propertyImageDir)) {
-//         res.sendFile(propertyImageDir)
-//     }else {
-//         res.sendFile(defaultImageDir)
-//     }
-// }
+const getPropertyImageByOwnerId = async (req, res) => {
+    const data = await Property.findOne({propertyOwner: req.params.ownerId})
+    if(data){
+        const propertyImageDir = path.join(__dirname, '../../', 'uploads/propertyImages/', data.propertyImage)
+        const defaultImageDir = path.join(__dirname, '../../', 'uploads/propertyImages/', 'default.jpg')
+        if(fs.existsSync(propertyImageDir)) {
+            res.sendFile(propertyImageDir)
+        }else {
+            res.sendFile(defaultImageDir)
+        }
+    }
+   
+}
 
 const getPropertyImageByPropertyId = async (req, res) => {
     const data = await Property.findById(req.params.propertyId)
@@ -50,4 +53,4 @@ const getPropertyImageByPropertyId = async (req, res) => {
 
 
 
-module.exports = { addNewProperty, getPropertyByOwnerId, getAllProperty, getPropertyImageByPropertyId }
+module.exports = { addNewProperty, getPropertyByOwnerId, getAllProperty, getPropertyImageByPropertyId, getPropertyImageByOwnerId }
