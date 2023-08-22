@@ -14,6 +14,17 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
+    keyframes: {
+        scale: {
+            '0%': {transform: 'scale(1)'},
+            '50%': {transform: 'scale(1.2)'},
+            '100%': {transform: 'scale(1)'}
+           
+        }
+    },
+    animation: {
+        'upscale': 'scale 30s linear infinite'
+    }
   },
   plugins: [
     require('preline/plugin'),

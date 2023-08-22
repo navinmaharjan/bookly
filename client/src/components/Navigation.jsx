@@ -297,33 +297,42 @@ function Navigation() {
           </div>
         </div>
       ) : (
-        <div className="bg-[#252B48] sticky top-0 left-0 py-4 z-20">
+        <div className="bg-transparent sticky top-0 left-0 py-4 z-20 hidden">
           <div className="container mx-auto flex justify-between items-center">
             <div>
               <h1 className="tracking-wider text-white">Bookly</h1>
             </div>
 
-            <div className="ps-60">
+            {/* <nav>
+                <ul className="flex text-white gap-10">
+                    <li>Home</li>
+                    <li>Hotels</li>
+                    <li>Tours</li>
+                    <li>Retaurants</li>
+                    <li>Contact</li>
+                </ul>
+            </nav> */}
+            {/* <div className="ps-60">
               <input
                 type="text"
                 className="py-[5px] px-5 block w-[500px] rounded-full text-basedark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                 placeholder="Search"
               />
-            </div>
+            </div> */}
 
             <div className="flex items-center gap-5">
               <div
                 className=" opacity-90 hover:opacity-80  cursor-pointer border  p-2 rounded-xl"
                 onClick={() => router.push("../owner/ownerregister")}
               >
-                <button className="text-white tracking-wider ">Add your Property</button>
+                <button className="text-white tracking-wider px-2 ">Add your Property</button>
               </div>
 
               <div
                 className=" opacity-90 hover:opacity-80 cursor-pointer border  p-2 rounded-xl"
                 onClick={() => router.push("./login")}
               >
-                <button className="text-white tracking-wider">Sign In/Register</button>
+                <button className="text-white tracking-wider px-2">Sign In/Register</button>
               </div>
             </div>
           </div>

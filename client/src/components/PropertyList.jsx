@@ -6,7 +6,7 @@ const PropertyCard = (props) => {
     return (
         <div className='flex flex-col gap-2'>
             <div className='h-40 overflow-hidden'>
-                <Image src={'http://localhost:8080/property-image/' + props.item._id} width={290} height={300} className='hover:scale-110 transition duration-300' alt='image' />
+                <Image src={'http://localhost:8080/property-image/' + props.item._id} width={290} height={300} className='hover:scale-110 transition duration-300' alt="image" />
             </div>
             <div className='flex flex-col'>
                 <div className='text-xl font-semibold'> {props.item.propertyName}</div>
@@ -43,7 +43,7 @@ const PropertyList = () => {
                 <div className='container mx-auto flex flex-wrap gap-5'>
                     {propertyDetails.length > 0 ? (
                         propertyDetails.map((item, id) => {
-                            return <PropertyCard id={id} item={item} />
+                            return <PropertyCard id={id} item={item} key={id} />
                         })
                     ) : "loading"}
                 </div>
