@@ -29,8 +29,8 @@ const PropertyList = () => {
         fetchProperty()
     }, [])
 
-    const handlePageChange = (e) => {
-        fetchProperty(5, e.target.textContent)
+    const handlePageChange = (e, page) => {
+        fetchProperty(5, page)
     }
     return (
         <>
