@@ -170,6 +170,7 @@ function index() {
                   >
                     Add Property
                   </button>
+                  
                 </div>
               )}
             </div>

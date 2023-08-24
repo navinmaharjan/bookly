@@ -1,10 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { setUserDetails } from "../../redux/reducerSlice/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-
+import { Alert } from "@mui/material";
 const SignupSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string()
@@ -16,7 +16,7 @@ const SignupSchema = Yup.object().shape({
 const Login = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-
+  const [responseMsg, setResponseMsg] = useState({ msgLabel: '', msgType: '' })
   const { isLoggedIn } = useSelector((state) => state.user);
 
   const handleLogin = async (values) => {
@@ -29,15 +29,19 @@ const Login = () => {
         body: JSON.stringify(values),
       });
       const result = await response.json();
-
-      dispatch(setUserDetails(result));
-    //   if (isLoggedIn) {
-    //     router.push("/profile");
-    //   } else {
-    //     router.push("/");
-    //   }
+      if(result.success) {
+        dispatch(setUserDetails(result));
+        setResponseMsg({
+            msgLabel: "Login successful, Welcome!",
+            msgType: "success",
+          });
+          router.push('/profile')
+      }else {
+        setResponseMsg({ msgLabel: result.msg, msgType: "error" });
+      }
     } catch (error) {
-      console.error("Error posting data:", error);
+        setResponseMsg({ msgLabel: "error.msg", msgType: "error" });
+        console.error("Error posting data:", error);
     }
   };
   return (
@@ -48,6 +52,7 @@ const Login = () => {
             <h1>Sign In</h1>
           </div>
 
+          
           <Formik
             initialValues={{
               email: "",
@@ -57,11 +62,12 @@ const Login = () => {
             onSubmit={(values) => {
               // same shape as initial values
               handleLogin(values)
-              router.push('/profile')
+              
             }}
           >
             {({ errors, touched }) => (
               <Form className="flex flex-col p-8 border-2 gap-5  w-[400px] mt-8 rounded-xl">
+                {responseMsg.msgType && <Alert severity={responseMsg.msgType} onClose={() => setResponseMsg({ msgLabel: '', msgType: '' })}> {responseMsg.msgLabel} </Alert>}
                 <div>
                   <Field
                     name="email"
