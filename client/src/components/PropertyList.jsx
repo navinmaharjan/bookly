@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+
 const PropertyCard = (props) => {
     return (
         <div className='flex flex-col gap-2'>
@@ -48,14 +49,9 @@ const PropertyList = () => {
                     ) : "loading"}
                 </div>
                 <div className='flex justify-center pt-8'>
-                  
-                        <Pagination count={pageCount} variant="outlined" shape="rounded" onChange={handlePageChange} />
-                  
+                    <Pagination count={pageCount} variant="outlined" shape="rounded" onChange={handlePageChange} />
                 </div>
             </div>
-
-
-
         </>
 
     )
