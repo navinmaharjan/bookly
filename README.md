@@ -18,11 +18,9 @@
                             -> number of guests button
 - [ ] Server Side
     - [ ] Register
-        - [ ] Admin
         - [ ] User
         - [ ] Owner
     - [ ] Login
-        - [ ] Admin
         - [ ] User
         - [ ] Owner
        
