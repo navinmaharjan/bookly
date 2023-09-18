@@ -1,15 +1,15 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import Hero from '@/components/Hero'
 import PropertyList from '@/components/PropertyList'
 function index() {
 
-    return (
-      <Fragment>
-        <Hero/>
-        <PropertyList />
-     
-      </Fragment>
-    )
+  return (
+    <>
+      <Hero />
+      <PropertyList />
+
+    </>
+  )
 }
 
 export default index

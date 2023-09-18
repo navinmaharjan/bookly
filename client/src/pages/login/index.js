@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { setUserDetails } from "../../redux/reducerSlice/userSlice";
@@ -29,30 +29,30 @@ const Login = () => {
         body: JSON.stringify(values),
       });
       const result = await response.json();
-      if(result.success) {
+      if (result.success) {
         dispatch(setUserDetails(result));
         setResponseMsg({
-            msgLabel: "Login successful, Welcome!",
-            msgType: "success",
-          });
-          router.push('/profile')
-      }else {
+          msgLabel: "Login successful, Welcome!",
+          msgType: "success",
+        });
+        router.push('/profile')
+      } else {
         setResponseMsg({ msgLabel: result.msg, msgType: "error" });
       }
     } catch (error) {
-        setResponseMsg({ msgLabel: "error.msg", msgType: "error" });
-        console.error("Error posting data:", error);
+      setResponseMsg({ msgLabel: "error.msg", msgType: "error" });
+      console.error("Error posting data:", error);
     }
   };
   return (
     <>
-      <div className="w-full flex justify-center items-center mt-16 mb-[343px]">
+      <div className="w-full flex justify-center items-center mt-32 mb-[343px]">
         <div>
           <div className="text-3xl text-gray-500 text-center">
             <h1>Sign In</h1>
           </div>
 
-          
+
           <Formik
             initialValues={{
               email: "",
@@ -62,7 +62,7 @@ const Login = () => {
             onSubmit={(values) => {
               // same shape as initial values
               handleLogin(values)
-              
+
             }}
           >
             {({ errors, touched }) => (
@@ -95,13 +95,13 @@ const Login = () => {
                 <div className="text-center mt-4">
                   <button
                     type="submit"
-                    className="bg-green-900 px-4 p-2  rounded-lg text-white w-2/5 transition duration-300  hover:bg-green-700 hover:text-white uppercase font-semibold tracking-wide"
+                    className="bg-blue px-4 p-2 text-white w-2/5"
                   >
                     Sign In
                   </button>
                 </div>
 
-                <div className="flex justify-between pt-16">
+                <div className="flex justify-between">
                   <div
                     className="text-sm text-gray-400 cursor-pointer hover:text-green-900"
                     onClick={() => router.push("./register")}
@@ -109,17 +109,6 @@ const Login = () => {
                     <p>Don't have an account/Sign Up</p>
                   </div>
                   <div className="text-sm text-gray-400">Forgot Password?</div>
-                </div>
-
-                <div className="text-xs text-center border-t border-b py-2 mt-4">
-                  <p>
-                    By signing in or creating an account, you agree with our{" "}
-                    <span className="text-blue-900">Terms & Conditions</span>{" "}
-                    and <span className="text-blue-900">Privacy Statement</span>
-                  </p>
-                </div>
-                <div className="text-xs text-center py-2">
-                  <p>All rights reserved. Copyright 2023 – Bookly.com™ </p>
                 </div>
               </Form>
             )}

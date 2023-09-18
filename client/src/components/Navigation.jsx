@@ -118,7 +118,7 @@ function Navigation() {
 
                   <div>
                     <h3 className="font-semibold text-white dark:text-white">
-                      {userDetails.firstName} {userDetails.lastName}
+                      {userDetails.fullName} 
                     </h3>
                   </div>
                 </div>
@@ -178,7 +178,7 @@ function Navigation() {
 
                   <div>
                     <h3 className="font-semibold text-white dark:text-white">
-                      {userDetails.firstName} {userDetails.lastName}
+                      {userDetails.fullName} 
                     </h3>
                   </div>
                 </div>
@@ -233,7 +233,7 @@ function Navigation() {
 
                   <div>
                     <h3 className="font-semibold text-white dark:text-white">
-                      {ownerDetails.firstName} {ownerDetails.lastName}
+                      {ownerDetails.fullName} 
                     </h3>
                   </div>
                 </div>
@@ -288,7 +288,7 @@ function Navigation() {
 
                   <div>
                     <h3 className="font-semibold text-white dark:text-white">
-                      {ownerDetails.firstName} {ownerDetails.lastName}
+                      {ownerDetails.fullName} 
                     </h3>
                   </div>
                 </div>

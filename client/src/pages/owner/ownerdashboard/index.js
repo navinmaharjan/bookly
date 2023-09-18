@@ -109,7 +109,7 @@ function index() {
             className="bg-gray-100 h-40 flex flex-col justify-center items-center rounded-md drop-shadow-sm"
           >
             <p className="text-gray-900 text-xl">
-              Namaste,{ownerDetails.firstName} {ownerDetails.lastName}
+              Namaste,{ownerDetails.fullName} 
             </p>
             {propertyDetails ? (
               <div></div>
@@ -155,10 +155,10 @@ function index() {
                     <div>
                         <h1>Name: {propertyDetails.propertyName}</h1>
                         <h1>Category: {propertyDetails.propertyRating}</h1>
+                        
                     </div>
-                 
                     <div>
-                        <Image src={'http://localhost:8080/property-image/' +ownerDetails._id}  width={500} height={500}/>
+                        <Image src={'http://localhost:8080/property-image/' +propertyDetails._id}  width={500} height={500}/>
                     </div>
                 </div>
               ) : (

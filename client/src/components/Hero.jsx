@@ -10,34 +10,28 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 
 const Hero = () => {
     const router = useRouter();
-   
-    return (
-        <>  
-            {/* <div className='bg-black py-4'>
 
-            </div> */}
-          
+    return (
+        <>
             <div className=' h-[700px] text-white flex justify-center items-center overflow-hidden relative'>
 
-                <div className="bg-transparent absolute top-0 left-0 py-4 w-full z-30 ">
+                <div className="bg-blue absolute top-0 left-0 py-2 w-full z-30 ">
 
                     <div className="container mx-auto flex justify-between items-center">
                         <div>
                             <h1 className="tracking-wider text-white">Bookly</h1>
                         </div>
-                        <div className="flex items-center gap-5">
+                        <div className="flex items-center gap-10">
                             <div
-                                className=" opacity-90 hover:opacity-80  cursor-pointer border border-[#FFC436] p-2 rounded-xl"
                                 onClick={() => router.push("../owner/ownerregister")}
                             >
-                                <button className="text-white tracking-wider px-2 ">Add your Property</button>
+                                <button className="text-white tracking-wide">Add your Property</button>
                             </div>
 
                             <div
-                                className=" opacity-90 hover:opacity-80 cursor-pointer border border-[#FFC436] p-2 rounded-xl"
-                                onClick={() => router.push("./login")}
+                               onClick={() => router.push("./login")}
                             >
-                                <button className="text-white tracking-wider px-2">Sign In/Register</button>
+                                <button className="text-white tracking-wide">Sign In/Register</button>
                             </div>
                         </div>
                     </div>
@@ -46,9 +40,9 @@ const Hero = () => {
                 </div>
                 <div className='absolute w-full h-[700px] bg-black opacity-50 z-20'></div>
                 <div className='pt-48'>
-             
-                    <video autoPlay muted loop className="video object-cover w-screen h-screen"> <source src="/banner.mp4" type="video/mp4" /> </video>
-                    {/* <Image src='/banner4.jpg' width={2000} height={500} alt="image" className='animate-upscal' /> */}
+
+                    {/* <video autoPlay muted loop className="video object-cover w-screen h-screen"> <source src="/banner.mp4" type="video/mp4" /> </video> */}
+                    <Image src='/bannerImage.jpg' width={2000} height={500} alt="image" className='animate-upscal' />
                 </div>
                 <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] flex justify-center flex-col text-center z-30'>
                     <h1 className='uppercase text-7xl font-bold'>Make your <span className="text-[#FFC436]">stay </span> experience delightful</h1>
