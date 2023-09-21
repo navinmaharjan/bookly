@@ -6,14 +6,35 @@ const propertySchema = new mongoose.Schema({
     propertyStreetAddress: String,
     propertySubStreetAddress: String,
     propertyState: String,
-    propertyRating: {
+    propertyType: {
         type: String,
-        enum: ['Five Star', 'Three Star', 'Guest House', 'Furnished Apartment'],
-        default: 'Five Star'
+        enum: ['Hotel', 'Guest House', 'Bed & Breakfast', 'Seviced Apartment', 'Resort','Villa'],
     },
     propertyImage: String,
-    propertyOwner: String
-    
+    propertyOwner: String,
+    propertyCancellationPolicy: {
+        type: String,
+        enum: ['Flexible', 'Moderate', 'Strict']
+    },
+    propertyCheckInFrom: String,
+    propertyCheckInTo: String,
+    propertyCheckOut: String,
+    propertyStarRating: String,
+    propertyRoomType: {
+        type: String,
+        enum: ['Suite Room','Deluxe Room', 'Standard Room']
+    },
+    suiteRoomImage: String,
+    deluxeRoomImage: String,
+    standardRoomImage: String,
+    propertyInformation: {
+        type: String,
+        enum: ['Air Condition', 'Brekfast', 'Laundry Service', 'Free WIFI']
+    },
+    paymentInformation: {
+        type: String,
+        enum: ['Cash', 'Esewa', 'Fonepay', 'Khalti', 'ConnectIPS']
+    }
 });
 
 const Property = mongoose.model('Property', propertySchema);
