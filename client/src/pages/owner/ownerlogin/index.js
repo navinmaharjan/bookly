@@ -31,7 +31,7 @@ const ownerLogin = () => {
 
             dispatch(setOwnerDetails(result))
             if (isOwnerLoggedIn) {
-                router.push('../owner/propertyregister')
+                router.push('../owner/ownerdashboard')
             } else {
                 router.push('/')
             }
