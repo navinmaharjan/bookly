@@ -28,7 +28,6 @@ const registerOwner = () => {
                 body: JSON.stringify(values),
 
             });
-
             const result = await response.json();
             if (response.status) {
                 setResponseMsg({ msgLabel: result.msg, msgType: response.status == 409 ? 'error' : 'success' })
@@ -73,9 +72,11 @@ const registerOwner = () => {
                             {errors.lastName && touched.lastName ? (
                                 <div className='text-red-600'>{errors.lastName}</div>
                             ) : null}
+                            
                             <div className='text-center'>
                                 <button type="submit" className='bg-blue px-4 p-2 text-white w-2/5'>Submit</button>
                             </div>
+                            
                             <div className='text-sm text-gray-400 cursor-pointer hover:text-blue text-center' onClick={() => router.push('../owner/ownerlogin')}>
                                 <p>Already have an account/Sign In</p>
                             </div>
