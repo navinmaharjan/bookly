@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import Header from '@/components/Header';
 
 const PropertySchema = Yup.object().shape({
     propertyName: Yup.string().required('Required'),
@@ -13,8 +14,8 @@ const PropertySchema = Yup.object().shape({
 const registerProperty = () => {
     const { ownerDetails } = useSelector(state => state.owner)
     const [file, setFile] = useState(null)
+    
     const handleAddProperty = async (values) => {
-       
         const formData = new FormData()
         Object.entries(values).map((item) => {
             formData.append(item[0], item[1])
@@ -28,6 +29,7 @@ const registerProperty = () => {
     }
     return (
         <>
+            <Header />
             <div className='flex justify-center items-center pt-32'>
                 <Formik
                     initialValues={{
@@ -105,7 +107,7 @@ const registerProperty = () => {
                             </div>
                             
                             <div className='text-center mt-4'>
-                                <button type="submit" className='bg-blue py-2 px-12 text-white uppercase font-semibold tracking-wide'>Submit</button>
+                                <button type="submit" className='bg-red py-2 px-12 text-white uppercase font-semibold tracking-wide'>Submit</button>
                             </div>
                         </Form>
                     )}

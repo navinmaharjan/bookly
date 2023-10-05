@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { useRouter } from "next/router";
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import Link from 'next/link';
+
 
 const PropertyList = () => {
+    const router = useRouter();
     const [propertyDetails, setPropertyDetails] = useState([])
     const [pageCount, setPageCount] = useState(1)
     const fetchProperty = async (limit = 5, page = 1) => {
@@ -22,9 +26,9 @@ const PropertyList = () => {
 
     const PropertyCard = (props) => {
         return (
-            <div className='flex flex-col gap-2'>
-                <div className='h-40 overflow-hidden'>
-                    <Image src={('http://localhost:8080/property-image/' +props.item._id)} width={290} height={300} className='hover:scale-110 transition duration-300' alt="image" />
+            <div onClick={() => router.push(`/property/${props.item._id}`)} className='flex flex-col gap-2 cursor-pointer'>
+                <div className='h-60 overflow-hidden'>
+                    <Image src={('http://localhost:8080/property-image/' +props.item._id)} width={450} height={100} className='hover:scale-105 transition duration-300' alt="image" />
                 </div>
                 <div className='flex flex-col'>
                     <div className='text-xl font-semibold'> {props.item.propertyName}</div>
@@ -37,9 +41,9 @@ const PropertyList = () => {
         <>
             <div className='py-8'>
                 <div className='w-full flex justify-center items-center'>
-                    <h3 className='text-2xl uppercase mb-4 font-semibold border-b-2 border-green-900'>
+                    {/* <h3 className='text-2xl uppercase mb-4 font-semibold border-b-2 border-red'>
                         Popular Listing
-                    </h3>
+                    </h3> */}
                 </div>
                 <div className='container mx-auto flex flex-wrap gap-5'>
                     {propertyDetails.length > 0 ? (
@@ -48,9 +52,9 @@ const PropertyList = () => {
                         })
                     ) : "loading"}
                 </div>
-                <div className='flex justify-center pt-8'>
+                {/* <div className='flex justify-center pt-8'>
                     <Pagination count={pageCount} variant="outlined" shape="rounded" onChange={handlePageChange} />
-                </div>
+                </div> */}
             </div>
         </>
 

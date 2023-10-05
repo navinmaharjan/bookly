@@ -1,7 +1,7 @@
 const express=require('express')
 const router=express.Router()
 const multer  = require('multer')
-const {addNewProperty, getPropertyByOwnerId, getAllProperty, getPropertyImageByPropertyId} = require('../controllers/property')
+const PropertyController = require('../controllers/property')
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -14,12 +14,14 @@ const storage = multer.diskStorage({
   })
   
 const upload = multer({ storage: storage })
-router.post('/property',upload.single('propertyImage'), addNewProperty)
+router.post('/property',upload.single('propertyImage'), PropertyController.addNewProperty)
 
-router.get('/property-image/:propertyId', getPropertyImageByPropertyId)
+router.get('/property-image/:propertyId', PropertyController.getPropertyImageByPropertyId)
 
-router.get('/property', getAllProperty)
+router.get('/property', PropertyController.getAllProperty)
 
-router.get('/property/:ownerId', getPropertyByOwnerId)
+router.get('/property/:propertyId', PropertyController.getPropertyDetailsById)
+
+router.get('/property/:ownerId', PropertyController.getPropertyByOwnerId)
 
 module.exports=router

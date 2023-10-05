@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Header from "@/components/Header";
 
 function index() {
   const router = useRouter();
@@ -21,7 +22,8 @@ function index() {
   }, []);
   return (
     <>
-      <div className="flex py-8 px-8 bg-gray-200">
+      <Header />
+      <div className="flex py-8 px-8 container">
         <div className=" w-72 h-[895px]">
           <nav
             className="flex flex-col"
@@ -114,10 +116,10 @@ function index() {
             {propertyDetails ? (
               <div></div>
             ) : (
-              <div className="text-sm flex justify-center items-center flex-col text-gray-400 pt-1">
+              <div className="text-md flex justify-center items-center flex-col text-gray-400 pt-1">
                 <h1>
                   You do not have any property to manage.Go to{" "}
-                  <span className="text-md text-gray-800">Add Listing</span> tab
+                  <span className="text-md text-red">My Listing</span> tab
                   to Add Property.
                 </h1>
               </div>
@@ -151,21 +153,20 @@ function index() {
           >
             <div className="bg-gray-100  flex justify-center items-center rounded-md drop-shadow-sm">
               {propertyDetails ? (
-                <div className="flex gap-5 items-center">
-                    <div>
-                        <h1>Name: {propertyDetails.propertyName}</h1>
-                        <h1>Category: {propertyDetails.propertyRating}</h1>
-                        
-                    </div>
+                <div className="flex flex-col gap-5 items-center p-10">
                     <div>
                         <Image src={'http://localhost:8080/property-image/' +propertyDetails._id}  width={500} height={500}/>
                     </div>
+                    <div>
+                        <h1>Name: {propertyDetails.propertyName}</h1>
+                        <h1>Category: {propertyDetails.propertyType}</h1>
+                    </div>
                 </div>
               ) : (
-                <div className="text-xl flex justify-center items-center flex-col">
+                <div className="text-md flex justify-center items-center flex-col py-10 gap-8">
                   <h1>You do not have any property to manage.</h1>
                   <button
-                    className="bg-red-400"
+                    className="bg-red text-white py-2 px-6"
                     onClick={() => router.push("./propertyregister")}
                   >
                     Add Property

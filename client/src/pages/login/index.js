@@ -60,7 +60,7 @@ const Login = () => {
 
         <div className="w-1/2 h-screen flex flex-col justify-center items-center">
           <div className="text-3xl text-gray-500 text-center">
-            <h1>Sign In</h1>
+            <h1>Log In</h1>
           </div>
           <Formik
             initialValues={{

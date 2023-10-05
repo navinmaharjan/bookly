@@ -4,7 +4,7 @@ const propertySchema = new mongoose.Schema({
     propertyName: String,
     propertyType: {
         type: String,
-        enum: ['Hotel', 'Guest House', 'Bed & Breakfast', 'Seviced Apartment', 'Resort','Villa'],
+        enum: ['Hotel', 'Guest House', 'Seviced Apartment', 'Resort'],
     },
     propertyImage: String,
     propertyOwner: String,
