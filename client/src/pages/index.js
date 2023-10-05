@@ -1,13 +1,10 @@
 import React from 'react'
-import Hero from '@/components/Hero'
-import PropertyList from '@/components/PropertyList'
+import Main from '@/components/Main'
 function index() {
 
   return (
     <>
-      <Hero />
-      <PropertyList />
-
+      <Main />
     </>
   )
 }

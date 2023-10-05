@@ -28,7 +28,7 @@ const PropertyList = () => {
                 </div>
                 <div className='flex flex-col'>
                     <div className='text-xl font-semibold'> {props.item.propertyName}</div>
-                    <div className=' text-gray-600'> {props.item.propertyRating}</div>
+                    <div className=' text-gray-600'> {props.item.propertyType}</div>
                 </div>
             </div>
         )

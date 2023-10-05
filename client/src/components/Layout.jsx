@@ -1,13 +1,9 @@
-import React, {Fragment} from 'react'
-import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
+import React from 'react'
 const Layout = ({children}) => {
   return (
-    <Fragment>
-        <Navigation />
-        <main>{children}</main>
-        {/* <Footer /> */}
-    </Fragment>
+    <>
+      <main>{children}</main>
+    </>
   )
 }
 

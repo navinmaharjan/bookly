@@ -28,7 +28,6 @@ const ownerLogin = () => {
                 body: JSON.stringify(values),
             });
             const result = await response.json();
-
             dispatch(setOwnerDetails(result))
             if (isOwnerLoggedIn) {
                 router.push('../owner/ownerdashboard')

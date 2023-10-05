@@ -14,7 +14,7 @@ const registerProperty = () => {
     const { ownerDetails } = useSelector(state => state.owner)
     const [file, setFile] = useState(null)
     const handleAddProperty = async (values) => {
-        debugger
+       
         const formData = new FormData()
         Object.entries(values).map((item) => {
             formData.append(item[0], item[1])

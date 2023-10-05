@@ -7,28 +7,28 @@ module.exports = {
     'node_modules/preline/dist/*.js',
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+        lg: '1rem',
+        xl: '1rem',
       },
+    },
+    screens: {
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px',
+    },
+    extend: {
       colors: {
         yellow: '#FFC436',
-        blue: '#252B48'
+        blue: '#252B48',
+        red:'#FF385D'
       }
     },
-    keyframes: {
-        scale: {
-            '0%': {transform: 'scale(1)'},
-            '50%': {transform: 'scale(1.2)'},
-            '100%': {transform: 'scale(1)'}
-           
-        }
-    },
-    animation: {
-        'upscale': 'scale 30s linear infinite'
-    }
   },
   plugins: [
     require('preline/plugin'),
