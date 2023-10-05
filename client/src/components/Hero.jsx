@@ -42,7 +42,7 @@ const Hero = () => {
                 <div className='pt-48'>
 
                     {/* <video autoPlay muted loop className="video object-cover w-screen h-screen"> <source src="/banner.mp4" type="video/mp4" /> </video> */}
-                    <Image src='/bannerImage.jpg' width={2000} height={500} alt="image" className='animate-upscal' />
+                    <Image src='/bannerImage.jpg' width={2000} height={500} alt="image" />
                 </div>
                 <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] flex justify-center flex-col text-center z-30'>
                     <h1 className='uppercase text-7xl font-bold'>Make your <span className="text-yellow">stay </span> experience delightful</h1>

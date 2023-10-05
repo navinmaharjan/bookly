@@ -46,10 +46,10 @@ const Header = () => {
               </button>
 
               <div class="hs-dropdown-menu hs-dropdown-open:opacity-100 w-72 transition-[opacity,margin] duration opacity-0 hidden z-10  duration-300 mt-2 min-w-[15rem] bg-white shadow-md rounded-lg p-2" aria-labelledby="hs-dropdown-slideup-animation">
-                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 cursor-pointer"  onClick={() => router.push("./login")}>
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 cursor-pointer" onClick={() => router.push("./register")}>
                   Sign Up
                 </a>
-                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 cursor-pointer">
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 cursor-pointer" onClick={() => router.push("./login")}>
                   Login
                 </a>
                 <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 cursor-pointer">
