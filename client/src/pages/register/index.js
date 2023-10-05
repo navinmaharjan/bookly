@@ -77,7 +77,7 @@ const registerUser = () => {
             }}
           >
             {({ errors, touched }) => (
-              <Form className="flex flex-col p-8 border-2 gap-5 w-[400px] mt-8 rounded-xl h-[400px]">
+              <Form className="flex flex-col p-8 border-2 gap-5 w-[400px] mt-8 rounded-xl h-[424px]">
                 <div>
                   <Field name="fullName" placeholder="Full Name" className=" border p-2 w-full" />
                   {errors.fullName && touched.fullName ? (<div className="text-red">{errors.fullName}</div>) : null}
@@ -99,6 +99,10 @@ const registerUser = () => {
 
                 <div className="text-sm text-gray-400 cursor-pointer hover:text-blue text-center" onClick={() => router.push("./login")}>
                   <p>Already have an account/Sign In</p>
+                </div>
+
+                <div className="text-sm text-gray-400 cursor-pointer hover:text-blue text-center" onClick={() => router.push("/")}>
+                  <p>Back to Home</p>
                 </div>
               </Form>
             )}

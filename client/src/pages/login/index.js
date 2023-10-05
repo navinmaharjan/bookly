@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { setUserDetails } from "../../redux/reducerSlice/userSlice";
@@ -46,13 +47,21 @@ const Login = () => {
   };
   return (
     <>
-      <div className="w-full flex justify-center items-center mt-32 mb-[343px]">
-        <div>
+      <div className="w-full flex justify-center items-center">
+        <div className="w-1/2 h-screen flex justify-center relative">
+          <Image
+            src="/login-banner.jpg"
+            width={2000}
+            height={500}
+            alt="image"
+            className="absolute w-full h-full object-cover"
+          />
+        </div>
+
+        <div className="w-1/2 h-screen flex flex-col justify-center items-center">
           <div className="text-3xl text-gray-500 text-center">
             <h1>Sign In</h1>
           </div>
-
-
           <Formik
             initialValues={{
               email: "",
@@ -69,51 +78,36 @@ const Login = () => {
               <Form className="flex flex-col p-8 border-2 gap-5  w-[400px] mt-8 rounded-xl">
                 {responseMsg.msgType && <Alert severity={responseMsg.msgType} onClose={() => setResponseMsg({ msgLabel: '', msgType: '' })}> {responseMsg.msgLabel} </Alert>}
                 <div>
-                  <Field
-                    name="email"
-                    type="email"
-                    placeholder="Email"
-                    className="border p-2 w-full"
-                  />
-                  {errors.email && touched.email ? (
-                    <div className="text-red-600">{errors.email}</div>
-                  ) : null}
+                  <Field name="email" type="email" placeholder="Email" className="border p-2 w-full" />
+                  {errors.email && touched.email ? (<div className="text-red">{errors.email}</div>) : null}
                 </div>
 
                 <div>
-                  <Field
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    className="border p-2 w-full"
-                  />
-                  {errors.lastName && touched.lastName ? (
-                    <div className="text-red-600">{errors.lastName}</div>
-                  ) : null}
+                  <Field name="password" type="password" placeholder="Password" className="border p-2 w-full" />
+                  {errors.lastName && touched.lastName ? (<div className="text-red">{errors.lastName}</div>) : null}
                 </div>
 
                 <div className="text-center mt-4">
-                  <button
-                    type="submit"
-                    className="bg-blue px-4 p-2 text-white w-2/5"
-                  >
+                  <button type="submit" className="bg-red px-4 p-2 text-white w-2/5" >
                     Sign In
                   </button>
                 </div>
 
                 <div className="flex justify-between">
-                  <div
-                    className="text-sm text-gray-400 cursor-pointer hover:text-green-900"
-                    onClick={() => router.push("./register")}
-                  >
+                  <div className="text-sm text-gray-400 cursor-pointer hover:text-gray-900" onClick={() => router.push("./register")} >
                     <p>Don't have an account/Sign Up</p>
                   </div>
                   <div className="text-sm text-gray-400">Forgot Password?</div>
+                </div>
+
+                <div className="text-sm text-gray-400 cursor-pointer hover:text-blue text-center" onClick={() => router.push("/")}>
+                  <p>Back to Home</p>
                 </div>
               </Form>
             )}
           </Formik>
         </div>
+
       </div>
     </>
   );
