@@ -143,12 +143,23 @@ const Header = () => {
                 </div>
               </div>
             ) : (
+              <>
+                   <div className='flex gap-4 items-center border border-gray-300 py-2 px-6 rounded-full shadow-md shadow-gray-200'>
+              <div className='border-r  text-gray-500 px-20'>Where</div>
+              <div className='border-r text-gray-500 px-20'>When</div>
+              <div className='text-gray-500 px-20'>Guests</div>
+              <div className='w-8 h-8 bg-red flex justify-center items-center rounded-full'>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-white">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                </svg>
+              </div>
+            </div>
               <div class="hs-dropdown relative inline-flex">
                 <button id="hs-dropdown-slideup-animation" type="button" class="hs-dropdown-toggle py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md  font-medium bg-white text-gray-700 shadow-sm align-middle">
 
                   <div className='flex border py-2 px-4 gap-2 rounded-full items-center cursor-pointer transition-shadow duration-300 hover:shadow-md shadow-gray-200'>
                     <div>
-                      Hi, {ownerDetails.fullName}
+                      Hi, {userDetails.fullName}
                     </div>
                     <div className='w-8 h-8 bg-red rounded-full flex justify-center items-center'>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
@@ -173,6 +184,8 @@ const Header = () => {
                   </a>
                 </div>
               </div>
+              </>
+           
             )}
           </div>
         </div>

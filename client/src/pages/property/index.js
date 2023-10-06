@@ -6,11 +6,12 @@ import Stack from '@mui/material/Stack';
 import Link from 'next/link';
 
 
+
 const PropertyList = () => {
     const router = useRouter();
     const [propertyDetails, setPropertyDetails] = useState([])
     const [pageCount, setPageCount] = useState(1)
-    const fetchProperty = async (limit = 5, page = 1) => {
+    const fetchProperty = async (limit = 6, page = 1) => {
         const response = await fetch(`http://localhost:8080/property?page=${page}&limit=${limit}`)
         const result = await response.json()
         setPropertyDetails(result.data)
@@ -21,7 +22,7 @@ const PropertyList = () => {
     }, [])
 
     const handlePageChange = (e, page) => {
-        fetchProperty(5, page)
+        fetchProperty(6, page)
     }
 
     const PropertyCard = (props) => {
@@ -41,9 +42,9 @@ const PropertyList = () => {
         <>
             <div className='py-8'>
                 <div className='w-full flex justify-center items-center'>
-                    {/* <h3 className='text-2xl uppercase mb-4 font-semibold border-b-2 border-red'>
-                        Popular Listing
-                    </h3> */}
+                    <h3 className='text-2xl  mb-4 font-semibold border-b-2 border-red'>
+                        Popular Hotel Listing
+                    </h3>
                 </div>
                 <div className='container mx-auto flex flex-wrap gap-5'>
                     {propertyDetails.length > 0 ? (
@@ -52,9 +53,9 @@ const PropertyList = () => {
                         })
                     ) : "loading"}
                 </div>
-                {/* <div className='flex justify-center pt-8'>
-                    <Pagination count={pageCount} variant="outlined" shape="rounded" onChange={handlePageChange} />
-                </div> */}
+                <div className='flex justify-center pt-8'>
+                    <Pagination count={pageCount} variant="outlined" shape="circle" onChange={handlePageChange} />
+                </div>
             </div>
         </>
 
