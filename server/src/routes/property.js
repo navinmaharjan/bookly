@@ -20,8 +20,10 @@ router.get('/property-image/:propertyId', PropertyController.getPropertyImageByP
 
 router.get('/property', PropertyController.getAllProperty)
 
-router.get('/property/:propertyId', PropertyController.getPropertyDetailsById)
+router.get('/propertyByOwnerId/:ownerId', PropertyController.getPropertyByOwnerId)
 
-router.get('/property/:ownerId', PropertyController.getPropertyByOwnerId)
+router.get('/propertyById/:propertyId', PropertyController.getPropertyDetailsById)
+
+// router.update('/propertyById/:propertyId', PropertyController.updatePropertyById)
 
 module.exports=router

@@ -12,11 +12,13 @@ const addNewProperty = async (req, res) => {
 
 const getPropertyByOwnerId = async (req, res) => {
     const data = await Property.findOne({ propertyOwner: req.params.ownerId })
+    console.log(data)
     res.json({ data })
 }
 
-const getPropertyDetailsById =async (req, res) => {
+const getPropertyDetailsById = async (req, res) => {
     const data =await Property.findById(req.params.propertyId)
+    console.log(data)
     res.json({data})
 }
 
@@ -39,5 +41,16 @@ const getPropertyImageByPropertyId = async (req, res) => {
         }
     }
 }
+
+// const updatePropertyById = async(req, res) => {
+//     try {
+//         const data = await Property.findById(req.params.propertyId)
+//         if(!data) {
+//             res.status(404).json({message: 'Property not found'})
+//         }
+
+//     }
+    
+// }
 
 module.exports = { addNewProperty, getPropertyByOwnerId, getAllProperty, getPropertyImageByPropertyId, getPropertyDetailsById }

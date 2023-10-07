@@ -32,9 +32,7 @@ const ownerLogin = () => {
             dispatch(setOwnerDetails(result))
             if (isOwnerLoggedIn) {
                 router.push('../owner/ownerdashboard')
-            } else {
-                router.push('/')
-            }
+            } 
         } catch (error) {
             console.error("Error posting data:", error);
         }
